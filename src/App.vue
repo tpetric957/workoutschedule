@@ -1,20 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    
+    <b-navbar class="type is-danger fixed-top">
+      <template slot="brand">
+            <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                <i class="fas fa-dumbbell"></i>
+            </b-navbar-item>
+        </template>
+        <template slot="start">
+            <b-navbar-item href="#">
+                Home
+            </b-navbar-item>
+            <b-navbar-item href="#">
+                About
+            </b-navbar-item>
+            <b-navbar-item href="#">
+                Contact
+            </b-navbar-item>
+        </template>
+
+        <template slot="end">
+            <b-navbar-item tag="div">
+                <div class="buttons">
+                    <a class="button is-dark">
+                        Sign up
+                    </a>
+                    <a class="button is-dark">
+                        Login
+                    </a>
+                </div>
+            </b-navbar-item>
+        </template>
+    </b-navbar>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
@@ -23,6 +43,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
