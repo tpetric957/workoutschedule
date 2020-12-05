@@ -1,42 +1,22 @@
 <template>
   <div id="app">
-    
-    <b-navbar class="type is-light">
-      <template slot="brand">
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                <i class="fas fa-dumbbell"></i>
-            </b-navbar-item>
-        </template>
-        <template slot="start">
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                Home
-            </b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/about' }">
-                About
-            </b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/planner' }">
-                Planner
-            </b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/contact' }">
-                Contact
-            </b-navbar-item>
-        </template>
-
-        <template slot="end">
-            <b-navbar-item tag="div">
-                <div class="buttons">
-                    <b-button type="is-dark" tag="router-link" :to="{ path: '/login' }">Login</b-button>
-                    
-                </div>
-            </b-navbar-item>
-        </template>
-    </b-navbar>
-    <router-view/>
+    <Navigacija/>
   </div>
 </template>
 
+<script>
+import Navigacija from '@/components/Navigacija.vue';
+
+export default {
+  components: {
+    Navigacija
+  },
+};
+</script>
+
 <style>
 #app {
+  
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

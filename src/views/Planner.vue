@@ -10,14 +10,19 @@
       <section>
         <b-tabs position="is-centered" class="block">
             <b-tab-item label="Monday">
+              <Picker/>
             </b-tab-item>
             <b-tab-item label="Tuesday">
+              <Picker/>
             </b-tab-item>
             <b-tab-item label="Wednesday">
+              <Picker/>
             </b-tab-item>
             <b-tab-item label="Thursday">
+              <Picker/>
             </b-tab-item>
             <b-tab-item label="Friday">
+              <Picker/>
             </b-tab-item>
         </b-tabs>
     </section>
@@ -30,12 +35,21 @@
 </template>
 
 <script>
+import Picker from '@/components/Picker.vue';
 
+export default {
+  components: {
+    Picker
+  },
+};
 </script>
 
 <style scoped>
  .planner{
    background-color: #363636;
+	background-image: url("../assets/Background-picker.jpg");
+  background-position: center;
+  height:1080px;
  }
  .box1{
    margin-top: 100px;

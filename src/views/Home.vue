@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    
     <div class="columns">
   <div class="column is-2 type is-danger"></div>
   <div class="column">
@@ -11,10 +12,13 @@
       </div>
     </div>
   </div>
-  <div class="column is-2"></div>
+  <div class="column is-6"></div>
 </div>
 <br>
 <br>
+<div class="content">
+
+</div>
   </div>
 </template>
 
@@ -25,14 +29,18 @@
 <style scoped>
  .home{
    height: auto;
-   background-color: #363636;
+   background-image: url("../assets/Background.jpg");
+   background-repeat: no-repeat;
+   background-position: center center;
  }
  .box1{
    margin-top: 100px;
-   background-color: whitesmoke;
+   margin-left: -100px;
+   background-color: #363636;
  }
  .box2{
    height:500px;
+   background-color: whitesmoke;
  }
  .title{
      margin-top:120px;
