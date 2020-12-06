@@ -46,13 +46,15 @@ export default {
 
 <style scoped>
  .planner{
-   background-color: #363636;
 	background-image: url("../assets/Background-picker.jpg");
   background-position: center;
   height:1080px;
  }
  .box1{
    margin-top: 100px;
-   background-color: whitesmoke;
+   background: rgba(0, 0, 0, 0.4);
+ }
+ .box2{
+   background: whitesmoke;
  }
 </style>

@@ -1,11 +1,10 @@
 <template>
   <div class="container">
-	<ejs-autocomplete class="autocomplete" :dataSource='dataItem' :fields='dataFields' placeholder="Select a workout from our database" :highlight="true" v-model="newExercise" @keyup.enter="addExercise" popupHeight="600px"></ejs-autocomplete>
-	<input type="text" class="exerciseInput" placeholder="or write down your exercise" v-model="newExercise" @keyup.enter="addExercise">
+	<input type="text" class="exerciseInput" placeholder="Write down your exercise" v-model="newExercise" @keyup.enter="addExercise">
 	<div v-for="(exercise, index) in exercisesFiltered" :key="exercise.id" class="lista">
-		<b-checkbox v-model="exercise.completed"></b-checkbox>
+		<input type="checkbox" v-model="exercise.completed">
 		<div class="exercises-left">
-			
+
 			<div v-if="!exercise.editing" class="exercise-label" @dblclick="editExercise(exercise)"  :class="{ check : exercise.completed }">{{exercise.title}}</div>
 			<input v-else class="exercise-edit" type="text" v-model="exercise.title" @blur="doneEdit(exercise)" @keyup.enter="doneEdit(exercise)" @keyup.esc="cancelEdit(exercise)" v-focus>
 		</div>
@@ -37,17 +36,10 @@ export default {
 	data(){
 		return {
 			newExercise: '',
-			idForExercise: 1,
+			idForExercise: 3,
 			beforeEditCache: '',
 			filter: '',
-			exercises: [],
-			dataItem:[
-				{exerciseId: '1', exerciseData: 'Pushup'},
-				{exerciseId: '2', exerciseData: 'Situp'},
-				{exerciseId: '3', exerciseData: 'Burpee'},
-				{exerciseId: '4', exerciseData: 'Biceps Curl'}
-			],
-			dataFields:{value: 'exerciseData'}
+			exercises: []
 		}
 	},
 	computed: {
@@ -88,7 +80,6 @@ export default {
 				title: this.newExercise,
 				completed: false
 			})
-
 			this.newExercise = ''
 			this.idForExercise ++
 		},
@@ -116,12 +107,10 @@ export default {
 			this.exercises = this.exercises.filter(exercise => !exercise.completed)
 		}
 	}
-
 }
 </script>
 
 <style scoped>
-@import url(https://cdn.syncfusion.com/ej2/material.css);
 .exerciseInput{
 	width:100%;
 	padding: 10px 10px;
@@ -182,5 +171,4 @@ export default {
 .active{
 	background-color: lightblue;
 }
-
-</style>
+</style> 

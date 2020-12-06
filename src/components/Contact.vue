@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div class="contact" id="contact">
     <div class="columns">
   <div class="column is-2"></div>
   <div class="column">
@@ -11,17 +11,17 @@
         <hr>
         <b-field label="Email">
                     <b-input type="email"
-                         placeholder="JohnKennedy@gmail.com">
+                         placeholder="JohnKennedy@gmail.com" class="is-dark">
                     </b-input>
                 </b-field>
                 <b-field label="Message">
-                    <b-input maxlength="200" type="textarea"  placeholder="Start typing..."></b-input>
+                    <b-input class="is-dark" maxlength="200" type="textarea"  placeholder="Start typing..."></b-input>
                 </b-field>
     </section>
       </div>
     </div>
   </div>
-  <div class="column is-2">Auto</div>
+  <div class="column is-2"></div>
 </div>
 <br>
 <br>
@@ -37,17 +37,18 @@ export default {
 <style scoped>
  .contact{
    height: auto;
-   background-color: #363636;
+   background-image: url("../assets/Background-contact.jpg");
  }
  .box1{
    margin-top: 100px;
-   background-color: whitesmoke;
+   background: rgba(0, 0, 0, 0.4);
  }
  .box2{
    height:500px;
+   background: rgba(245, 245, 245, 0.9);
  }
  section{
-     margin-left:220px;
+     margin-left:260px;
      width:500px;
  }
 </style>

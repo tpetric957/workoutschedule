@@ -93,14 +93,17 @@
 <style scoped>
  .login{
    height: auto;
-   background-color: #363636;
+   background-image: url("../assets/Background-login.jpg");
+   background-position: center;
+   height:803px;
  }
  .box1{
+   background: rgba(0, 0, 0, 0.4);
    margin-top: 100px;
-   background-color: whitesmoke;
  }
  .box2{
    height:500px;
+   background: rgba(245, 245, 245, 0.9);
  }
  .box2 p{
    margin-top:50px;

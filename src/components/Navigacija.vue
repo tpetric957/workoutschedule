@@ -10,14 +10,14 @@
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 Home
             </b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/about' }">
+            <b-navbar-item href="#about">
                 About
+            </b-navbar-item>
+            <b-navbar-item href="#contact">
+                Contact
             </b-navbar-item>
             <b-navbar-item tag="router-link" :to="{ path: '/planner' }">
                 Planner
-            </b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/contact' }">
-                Contact
             </b-navbar-item>
         </template>
 
