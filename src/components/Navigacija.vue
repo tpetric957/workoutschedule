@@ -23,10 +23,7 @@
 
         <template slot="end">
             <b-navbar-item tag="div">
-                <div class="buttons">
-                    <b-button type="is-dark" tag="router-link" :to="{ path: '/login' }">Login</b-button>
-                    
-                </div>
+                <b-button type="is-dark" tag="router-link" :to="{ path: '/login' }">Log in</b-button>
             </b-navbar-item>
         </template>
     </b-navbar>
@@ -35,9 +32,7 @@
 </template>
 
 <script>
-export default {
 
-}
 </script>
 
 <style>

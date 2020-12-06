@@ -1,8 +1,9 @@
 <template>
   <div class="container">
-	<input type="text" class="exerciseInput" placeholder="Write down your exercise" v-model="newExercise" @keyup.enter="addExercise">
+	<ejs-autocomplete class="autocomplete" :dataSource='dataItem' :fields='dataFields' placeholder="Select a workout from our database" :highlight="true" v-model="newExercise" @keyup.enter="addExercise" popupHeight="600px"></ejs-autocomplete>
+	<input type="text" class="exerciseInput" placeholder="or write down your exercise" v-model="newExercise" @keyup.enter="addExercise">
 	<div v-for="(exercise, index) in exercisesFiltered" :key="exercise.id" class="lista">
-		<input type="checkbox" v-model="exercise.completed">
+		<b-checkbox v-model="exercise.completed"></b-checkbox>
 		<div class="exercises-left">
 			
 			<div v-if="!exercise.editing" class="exercise-label" @dblclick="editExercise(exercise)"  :class="{ check : exercise.completed }">{{exercise.title}}</div>
@@ -36,10 +37,17 @@ export default {
 	data(){
 		return {
 			newExercise: '',
-			idForExercise: 3,
+			idForExercise: 1,
 			beforeEditCache: '',
 			filter: '',
-			exercises: []
+			exercises: [],
+			dataItem:[
+				{exerciseId: '1', exerciseData: 'Pushup'},
+				{exerciseId: '2', exerciseData: 'Situp'},
+				{exerciseId: '3', exerciseData: 'Burpee'},
+				{exerciseId: '4', exerciseData: 'Biceps Curl'}
+			],
+			dataFields:{value: 'exerciseData'}
 		}
 	},
 	computed: {
@@ -113,7 +121,7 @@ export default {
 </script>
 
 <style scoped>
-
+@import url(https://cdn.syncfusion.com/ej2/material.css);
 .exerciseInput{
 	width:100%;
 	padding: 10px 10px;
@@ -174,4 +182,5 @@ export default {
 .active{
 	background-color: lightblue;
 }
+
 </style>
