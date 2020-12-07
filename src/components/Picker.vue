@@ -1,17 +1,20 @@
 <template>
   <div class="container">
 	<input type="text" class="exerciseInput" placeholder="Write down your exercise" v-model="newExercise" @keyup.enter="addExercise">
-	<div v-for="(exercise, index) in exercisesFiltered" :key="exercise.id" class="lista">
+        <div v-for="(exercise, index) in exercisesFiltered" :key="exercise.id" class="lista">
 		<input type="checkbox" v-model="exercise.completed">
 		<div class="exercises-left">
-
+			<b-tooltip class="tip" label="Hint: if you doubleclick on your exercise, you can edit it :)" type="is-dark">
 			<div v-if="!exercise.editing" class="exercise-label" @dblclick="editExercise(exercise)"  :class="{ check : exercise.completed }">{{exercise.title}}</div>
 			<input v-else class="exercise-edit" type="text" v-model="exercise.title" @blur="doneEdit(exercise)" @keyup.enter="doneEdit(exercise)" @keyup.esc="cancelEdit(exercise)" v-focus>
+			</b-tooltip>
 		</div>
 		<div class="remove" @click="removeExercise(index)">
 			&times;
 		</div>
 	</div>
+        
+	
 	<div class="extra-container">
 		<div><label><input type="checkbox" :checked="!anyRemaining" @change="checkAll">Check All</label></div>
 		<div>{{ remaining }} items left</div>
@@ -24,7 +27,9 @@
 			<button class="button" @click="filter = 'completed'" :class="{ active : filter=='completed' }">Completed</button>
 		</div>
 		<div>
-			<button v-if="showClearCompletedButton" @click="clearCompleted" class="button">Clear Completed</button>
+			<transition name="fade">
+				<button v-if="showClearCompletedButton" @click="clearCompleted" class="button">Clear Completed</button>
+			</transition>
 		</div>
 	</div>
   </div>
@@ -36,9 +41,9 @@ export default {
 	data(){
 		return {
 			newExercise: '',
-			idForExercise: 3,
+			idForExercise: 1,
 			beforeEditCache: '',
-			filter: '',
+			filter: 'all',
 			exercises: []
 		}
 	},
@@ -78,7 +83,8 @@ export default {
 			this.exercises.push({
 				id: this.idForExercise,
 				title: this.newExercise,
-				completed: false
+				completed: false,
+				editing: false,
 			})
 			this.newExercise = ''
 			this.idForExercise ++
@@ -133,7 +139,7 @@ export default {
 }
 .exercise-label{
 	padding: 10px;
-	border: 1px solid white;
+	border: 1px solid whitesmoke;
 	margin-left: 12px;
 }
 .exercise-edit{
@@ -170,5 +176,15 @@ export default {
 }
 .active{
 	background-color: lightblue;
+}
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity .2s;
+}
+.fade-enter, .fade-leave-tp{
+	opacity: 0;
+}
+.tip{
+	width:100%;
 }
 </style> 
